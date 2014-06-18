@@ -6,6 +6,8 @@ gem 'bootstrap-sass', '~> 3.1.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.5'
 
+gem 'figaro'
+
 group :production do
   gem 'pg'
   gem 'rails_12factor'
@@ -14,6 +16,8 @@ end
 group :development do
   gem 'sqlite3'
 end
+
+gem 'devise'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
