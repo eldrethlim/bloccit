@@ -1,8 +1,5 @@
 <!-- app/views/posts/show.html.erb -->
 
-<!--<h1><%= @post.title %></h1>
-<p><%= @post.body %></p> -->
-
 <br><br>
 
 <div class="panel panel-default">
@@ -16,5 +13,5 @@
 </div>
 
 <% if policy(@post).edit? %>
- 	<%= link_to "Edit", edit_post_path(@post), class: 'btn btn-success' %>
+ 	<%= link_to "Edit", edit_topic_post_path(@topic,@post), class: 'btn btn-success' %>
 <% end %>
