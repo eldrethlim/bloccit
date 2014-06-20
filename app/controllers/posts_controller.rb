@@ -1,7 +1,6 @@
 # app/controllers/posts_controller.rb
 
 class PostsController < ApplicationController
-# app/controllers/posts_controller.rb
 
   def new
     @topic = Topic.find(params[:topic_id])
