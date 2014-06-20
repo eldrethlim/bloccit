@@ -35,7 +35,7 @@ posts = Post.all
 end
 
 User.first.update_attributes(
-	email: 'youremail.com',
+	email: 'your@email.com',
 	password: 'helloworld',
 )
 

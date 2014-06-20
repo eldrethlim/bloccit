@@ -15,4 +15,6 @@
   </div>
 </div>
 
-<%= link_to "Edit", edit_post_path(@post), class: 'btn btn-success' %>
+<% if policy(@post).edit? %>
+ 	<%= link_to "Edit", edit_post_path(@post), class: 'btn btn-success' %>
+<% end %>
