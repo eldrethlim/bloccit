@@ -1,6 +1,9 @@
 # Gemfile
 source 'https://rubygems.org'
 
+# The Paginator
+gem 'will_paginate', '~> 3.0.5'
+
 # Amazon S3 servers
 gem 'fog'
 
