@@ -1,16 +1,26 @@
 # Gemfile
 source 'https://rubygems.org'
 
+# Amazon S3 servers
+gem 'fog'
+
+# Uploading Images
+gem 'carrierwave'
+gem 'mini_magick'
+
 #Post Markdown
 gem 'redcarpet'
 
+#Bootstrap Framework
 gem 'bootstrap-sass', '~> 3.1.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.5'
 
+# Environment Variable
 gem 'figaro'
 
+# Authorization
 gem 'pundit'
 
 group :production do
@@ -22,6 +32,7 @@ group :development do
   gem 'sqlite3'
 end
 
+# User Authentication
 gem 'devise'
 
 # Use SCSS for stylesheets

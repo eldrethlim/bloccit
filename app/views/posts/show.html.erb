@@ -4,6 +4,11 @@
 
 <div class="panel panel-default">
   <div class="panel-heading">
+    <small>
+      <%= image_tag(@post.user.avatar.tiny.url) if @post.user.avatar? %>
+      submitted <%= time_ago_in_words(@post.created_at) %> ago by
+      <%= @post.user.name %>
+    </small>
     <h1 class="panel-title"><%= markdown @post.title %></h1>
   </div>
 
