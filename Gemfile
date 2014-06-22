@@ -1,6 +1,9 @@
 # Gemfile
 source 'https://rubygems.org'
 
+#Post Markdown
+gem 'redcarpet'
+
 gem 'bootstrap-sass', '~> 3.1.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
