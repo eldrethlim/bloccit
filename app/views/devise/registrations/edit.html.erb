@@ -1,3 +1,5 @@
+<!-- app/views/devise/registrations/edit.html.erb -->
+
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <div class="row">
@@ -22,31 +24,32 @@
       </div>
       <div class="form-group">
         <%= f.label :password_confirmation %>
-        <%= f.passworrd_field :password_confirmation, class: 'form-control', placeholder: "Enter password confirmation" %>
+        <%= f.password_field :password_confirmation, class: 'form-control', placeholder: "Enter password confirmation" %>
       </div>
       <div class="form-group">
         <%= f.submit "Update", class: 'btn btn-success' %>
       </div>
     <% end %>
 
-    <% if current_user.avatar? %>
-      <div class="form-group">
-        <p>Current Avatar</p>
-        <%= image_tag( current_user.avatar.profile.url ) %>
-      </div>
-    <% end %>
-
-    <div class="form-group">
-      <%= f.label :avatar %>
-      <%= f.file_field :avatar %>
-      <%= f.hidden_field :avatar_cache %>
-    </div>
-
     <h3>Edit personal information</h3>
     <%= form_for(current_user) do |f| %>
       <div class="form-group">
         <%= f.label :name %>
         <%= f.text_field :name, class: 'form-control', placeholder: "Enter name", autofocus:  true %>
+
+      <% if current_user.avatar? %>
+      <div class="form-group">
+        <p>Current Avatar</p>
+        <%= image_tag( current_user.avatar.profile.url ) %>
+      </div>
+      <% end %>
+
+      <div class="form-group">
+      <%= f.label :avatar %>
+      <%= f.file_field :avatar %>
+      <%= f.hidden_field :avatar_cache %>
+      </div>
+      
       </div>
       <div class="form-group">
         <%= f.submit "Update", class: 'btn btn-success' %>
