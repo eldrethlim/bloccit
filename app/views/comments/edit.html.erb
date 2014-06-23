@@ -1,0 +1,19 @@
+<!-- app/views/comments/edit.html.erb -->
+
+<h1>Edit Comment</h1>
+
+<div class="row">
+  <div class="col-md-12">
+    <p>Guideline for posts</p>
+    <ul>
+      <li>You must like dwarves!</li>
+      <li>Every worthy comment entitles you to one golden dragon.</li>
+      <li>Ice cream is the one true king of Westeros.</li>
+    </ul>
+  </div>
+  <div class="col-md-8">
+
+    <%= render partial: 'form', locals: { post: @post, comment: @comment} %>
+
+  </div>
+</div>

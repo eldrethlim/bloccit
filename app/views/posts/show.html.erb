@@ -2,8 +2,8 @@
 
 <br><br>
 
-<div class="panel panel-default">
-  <div class="panel-heading">
+<div class="row">
+  <div class="col-md-8">
     <small>
       <%= image_tag(@post.user.avatar.tiny.url) if @post.user.avatar? %>
       submitted <%= time_ago_in_words(@post.created_at) %> ago by
@@ -12,12 +12,36 @@
     <h1 class="panel-title"><%= markdown @post.title %></h1>
   </div>
 
-  <div class="panel-body">
+  <div class="col-md-8">
     <%= image_tag(@post.image) %>
     <p><%= markdown @post.body %></p>
   </div>
+  <div class="col-md-6">
+  <% if policy(@post).edit? %>
+    <%= link_to "Edit Post", edit_topic_post_path(@topic,@post), class: 'btn btn-success' %>
+  <% end %>
+  <div class="col-md-6">
+  <% if policy(Comment.new).create? %>
+    <%= link_to "New Comment", new_post_comment_path(@post), class: 'btn btn-success' %>
+  <% end %>
+</div>
+</div>
+<br>
+  <div class="col-md-8">
+    <p class="lead">Comments</p>
+    <% @comments.each do |comment| %>
+      <div class="col-md-12">
+        <%= image_tag(comment.image) %>
+        <%= comment.body %>
+        <br>
+        <%= image_tag(comment.user.avatar.tiny.url) if comment.user.avatar? %>
+        submitted <%= time_ago_in_words(comment.created_at) %> ago by
+        <%= comment.user.name %><br>
+        <% if policy(comment).edit? %>
+          <%= link_to "Edit Comment", edit_post_comment_path(@post,comment), class: 'btn btn-success' %>
+        <% end %>
+      </div>
+    <% end %>
+    <%= will_paginate @comments %>
 </div>
 
-<% if policy(@post).edit? %>
- 	<%= link_to "Edit", edit_topic_post_path(@topic,@post), class: 'btn btn-success' %>
-<% end %>

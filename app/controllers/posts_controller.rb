@@ -15,7 +15,7 @@ class PostsController < ApplicationController
 
     authorize @post
     if @post.save
-      redirect_to [@topic, @post], notice: "Post was saved successfully."
+      redirect_to [@topic, @post], notice: "You successfully created a new post."
     else
       flash[:error] = "There was an error saving your post. Please try again."
       render :new
@@ -25,6 +25,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @topic = Topic.find(params[:topic_id])
+    @comments = @post.comments.paginate(page: params[:page], per_page: 10)
   end
 
   def edit
@@ -38,7 +39,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     authorize @post
     if @post.update_attributes(post_params)
-      flash[:notice] = "Post was updated."
+      flash[:notice] = "Your post was updated."
       redirect_to [@topic, @post]
     else
       flash[:error] = "There was an error updating your post. Please try again."
