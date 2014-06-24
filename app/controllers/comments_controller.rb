@@ -25,12 +25,14 @@ class CommentsController < ApplicationController
   def edit
     @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
+
     authorize @comment
   end
 
   def update
     @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
+
     authorize @comment
     if @comment.update_attributes(comment_params)
       flash[:notice] = "Your comment was updated."
@@ -38,6 +40,20 @@ class CommentsController < ApplicationController
     else
       flash[:error] = "There was an error updating your comment. Please try again."
       render :edit
+    end
+  end
+
+  def destroy
+    @post = Post.find(params[:post_id])
+    @comment = Comment.find(params[:id])
+
+    authorize @comment
+    if @comment.destroy
+      flash[:notice] = "Your comment was removed."
+      redirect_to [@post.topic, @post]
+    else
+      flash[:error] = "There was an error deleting your comment. Please try again."
+      redirect_to [@post.topic, @post]
     end
   end
 
