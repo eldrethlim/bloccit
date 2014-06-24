@@ -34,7 +34,7 @@ class CommentsController < ApplicationController
     authorize @comment
     if @comment.update_attributes(comment_params)
       flash[:notice] = "Your comment was updated."
-      redirect_to [@post]
+      redirect_to [@post.topic, @post]
     else
       flash[:error] = "There was an error updating your comment. Please try again."
       render :edit

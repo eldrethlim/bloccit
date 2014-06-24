@@ -2,9 +2,6 @@
 
 Bloccit::Application.routes.draw do
   
-  get "comments/show"
-  get "comments/new"
-  get "comments/edit"
   devise_for :users
   resources :users, only: [:update]
   
