@@ -1,0 +1,7 @@
+<!-- app/views/votes/_cvoter.html.erb -->
+
+<div class="vote-arrows pull-left">
+  <div><%= link_to " ", post_comment_c_up_vote_path(post, comment), class: 'glyphicon glyphicon-chevron-up' %></div>
+  <div><strong><%= comment.points %></strong></div>
+  <div><%= link_to " ", post_comment_c_down_vote_path(post, comment), class: 'glyphicon glyphicon-chevron-down' %></div>
+</div>

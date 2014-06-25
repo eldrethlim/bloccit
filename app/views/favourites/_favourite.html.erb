@@ -1,0 +1,15 @@
+<!-- app/views/favourites/_favourites.html.erb -->
+
+<% if policy(Favourite.new).create? %>
+  <div class="favourite">  
+    <% if favourite = current_user.favourited(post) %>
+      <%= link_to [topic, post, favourite], class: 'btn btn-danger', method: :delete do %>
+        <i class="glyphicon glyphicon-star-empty"></i>&nbsp; Unfavourite
+    <% end %>
+  <% else %>
+    <%= link_to [topic, post, Favourite.new], class: 'btn btn-primary', method: post do %>
+      <i class="glyphicon glyphicon-star"></i>&nbsp; Favourite
+    <% end %>
+  <% end %>
+  </div>
+<% end %>

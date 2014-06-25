@@ -1,0 +1,7 @@
+<!-- app/views/votes/_pvoter.html.erb -->
+
+<div class="vote-arrows pull-left">
+  <div><%= link_to " ", topic_post_p_up_vote_path(topic,post), class: 'glyphicon glyphicon-chevron-up' %></div>
+  <div><strong><%= post.points %></strong></div>
+  <div><%= link_to " ", topic_post_p_down_vote_path(topic,post), class: 'glyphicon glyphicon-chevron-down' %></div>
+</div>
