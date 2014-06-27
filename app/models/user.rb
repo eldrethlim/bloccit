@@ -11,6 +11,17 @@ class User < ActiveRecord::Base
   has_many :favourites, dependent: :destroy
   mount_uploader :avatar, AvatarUploader
 
+  def self.top_rated
+    self.select('users.*').
+    select('COUNT(DISTINCT comments.id) AS comments_count').
+    select('COUNT(DISTINCT posts.id) AS posts_cound')
+    select('COUNT(DISTINCT comments.id) + COUNT(DISTINCT posts.id) AS rank').
+    joins(:posts).
+    joins(:comments).
+    group('users.id').
+    order('rank DESC')
+  end
+  
   def role?(base_role)
   	role == base_role.to_s
   end
