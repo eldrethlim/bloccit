@@ -7,6 +7,12 @@ gem 'will_paginate', '~> 3.0.5'
 # Amazon S3 servers
 gem 'fog'
 
+#Rspec
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails', '~> 4.0'
+end
+
 # Uploading Images
 gem 'carrierwave'
 gem 'mini_magick'
