@@ -42,7 +42,8 @@
 </div>
 <br>
   <div class="col-md-8">
-    <p class="lead">Comments</p>
+    <hr/>
+    <h2 class='js-comments-count'><%= @comments.count %> comments</h2> 
     <%= render partial: 'comments/comment', collection: @comments %>
     <%= will_paginate @comments %>
   </div>
