@@ -61,7 +61,7 @@ before_action :load_vote_from_comment, only: [:c_up_vote, :c_down_vote]
   end
 
   def load_vote_from_comment
-    load_post
+    load_comment
     load_vote(@comment)
   end
 

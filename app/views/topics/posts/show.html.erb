@@ -39,11 +39,19 @@
   </div>
   <%= render partial: 'favourites/favourite', locals: { topic: @topic, post: @post} %>
   </div>
+
+  <div class="col-md-8">
+    <% if policy(Comment.new).create? %>
+      <hr/>
+      <%= render partial: 'comments/form', locals: { post: @post, comment: @comment } %>
+    <% end %>
 </div>
 <br>
-  <div class="col-md-8">
-    <hr/>
-    <h2 class='js-comments-count'><%= @comments.count %> comments</h2> 
+<div class="col-md-8">
+  <hr/>
+  <h2 class='js-comments-count'><%= @comments.count %> comments</h2>
+  <div class='js-comments'> 
     <%= render partial: 'comments/comment', collection: @comments %>
-    <%= will_paginate @comments %>
   </div>
+  <%= will_paginate @comments %>
+</div>

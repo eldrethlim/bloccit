@@ -6,7 +6,7 @@ class Comment < ActiveRecord::Base
   has_many :votes, dependent: :destroy
   mount_uploader :image, CommentImageUploader
 
-  default_scope { order('created_at DESC')}
+  default_scope { order('updated_at DESC')}
   
   validates :body, presence: true
   validates :post, presence: true

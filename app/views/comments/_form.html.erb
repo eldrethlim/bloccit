@@ -1,17 +1,6 @@
 <!-- app/views/comments/_form.html.erb -->
 
-<div class="row">
-  <div class="col-md-12">
-    <p>Guideline for posts</p>
-    <ul>
-      <li>You must like dwarves!</li>
-      <li>Every worthy comment entitles you to one golden dragon.</li>
-      <li>Ice cream is the one true king of Westeros.</li>
-    </ul>
-  </div>
-</div>
-
-<%= form_for [post, comment] do |f| %>
+<%= form_for [post, comment], remote: true do |f| %>
 
   <% if comment.errors.any? %>
     <div class="alert alert-danger">
