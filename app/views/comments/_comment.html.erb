@@ -1,20 +1,24 @@
 <!-- app/views/comments/_comment.html.erb -->
-
+<br>
 <div class="col-md-12" id=<%= "comment-#{comment.id}" %> >
   <%= render partial: 'votes/cvoter', locals: { post: comment.post, comment: comment } %>
+  <div>
     <%= image_tag(comment.image) %>
       <%= comment.body %>
-      <br>
+      <br><br>
       <%= content_tag :div, class: 'media' do %>
-        <%= image_tag(comment.user.avatar.tiny.url) if comment.user.avatar? %>
           submitted <%= time_ago_in_words(comment.created_at) %> ago by
-        <%= comment.user.name %>
+        <%= image_tag(comment.user.avatar.tiny.url) if comment.user.avatar? %><%= comment.user.name %>
         <br>
         <% if policy(comment).edit? %>
-          <%= link_to "Edit Comment", edit_post_comment_path(comment.post,comment), class: 'btn btn-success' %>
+          <%= link_to edit_post_comment_path(comment.post,comment), class: 'btn btn-primary btn-sm' do %>
+          <span class="glyphicon glyphicon-edit"></span>
+          <% end %>
         <% end %>
         <% if policy(comment).destroy? %>
-          <%= link_to "Delete Comment", comment_url_helper(comment), method: :delete, class: 'btn btn-danger', remote: true %>
+          <%= link_to comment_url_helper(comment), method: :delete, remote: true, class: 'btn btn-primary btn-sm' do %>
+          <span class="glyphicon glyphicon-remove-sign"></span>
+          <% end %>
         <% end %>
       <% end %> 
 </div>
