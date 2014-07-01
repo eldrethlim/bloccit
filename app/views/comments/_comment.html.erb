@@ -12,11 +12,13 @@
         <br>
         <% if policy(comment).edit? %>
           <%= link_to edit_post_comment_path(comment.post,comment), class: 'btn btn-primary btn-sm' do %>
+          <data-toggle="tooltip" data-placement="top" title="Edit Comment">
           <span class="glyphicon glyphicon-edit"></span>
           <% end %>
         <% end %>
         <% if policy(comment).destroy? %>
           <%= link_to comment_url_helper(comment), method: :delete, remote: true, class: 'btn btn-primary btn-sm' do %>
+          <data-toggle="tooltip" data-placement="top" title="Delete Comment">
           <span class="glyphicon glyphicon-remove-sign"></span>
           <% end %>
         <% end %>
