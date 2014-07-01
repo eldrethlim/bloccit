@@ -20,7 +20,7 @@
             <%= image_tag(current_user.avatar.tiny.url) if current_user.avatar? %>
             Hello <%= link_to (current_user.name || current_user.email), current_user %>!
             <%= link_to edit_user_registration_path, class: 'btn btn-primary btn-sm' do %>
-              <span class="gylphicon glyphicon-user"></span>
+              <span class="glyphicon glyphicon-user"></span>
             <% end %>
 
             <%= link_to destroy_user_session_path, method: :delete, class: 'btn btn-primary btn-sm' do %>
