@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :favourites, dependent: :destroy
   mount_uploader :avatar, AvatarUploader
+  #enum role: [:user, :moderator, :admin]
+  #after_initialize :set_default_role, :if => :new_record?
 
   def self.top_rated
     self.select('users.*').
@@ -22,6 +24,10 @@ class User < ActiveRecord::Base
     order('rank DESC')
   end
   
+  def set_default_role
+    self.role ||= :user
+  end
+
   def role?(base_role)
   	role == base_role.to_s
   end
